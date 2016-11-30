@@ -12,7 +12,7 @@ public class FelhasznaloKezelo extends Kezelo<Felhasznalo> {
     @Override
     public void hozzaad() {
         try {
-            System.out.println("Tipus: [1] Ugyfel, [2] Tulajdonos, [3] Raktaros, [4] Szerelo, [5] Recepcios");
+            System.out.println("Tipus: [1] Ugyfel, [2] Tulajdonos, [3] Raktaros, [4] Szerelo, [5] Recepcios ");
             String tipus = SzervizMain.bekerSzoveg();
             if( "1".equals(tipus) ) {
                 ugyfelHozzaad();

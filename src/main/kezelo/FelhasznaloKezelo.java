@@ -1,10 +1,11 @@
 package main.kezelo;
 
-import main.SzervizMain;
+
 import main.modell.aktor.*;
 
 import java.util.List;
 import java.util.Optional;
+import main.SzervizMain;
 
 public class FelhasznaloKezelo extends Kezelo<Felhasznalo> {
 

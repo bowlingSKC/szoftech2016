@@ -12,7 +12,7 @@ public class SzervizMain {
 
     public static final String HIBAUZENET = "Hiba tortent az adatok bekerese kozben! Kerem probalja ujra!";
 
-    private Felhasznalo bejelentkezett;     // bejelentkezett felhasználó vagy null
+    private Felhasznalo bejelentkezett;     // bejelentkezett felhasználó
 
     // kezelok
     private static final MunkalapKezelo munkalapKezelo = new MunkalapKezelo();

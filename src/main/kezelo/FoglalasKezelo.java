@@ -87,7 +87,49 @@ public class FoglalasKezelo extends Kezelo {
     }
 
     public void FoglalasModositas() {
-
+        try
+        {
+        int azon=0;
+        System.out.println("=========Datum modositasa=========");
+        System.out.println("Elozo foglalas idopontja? (eeee.hh.nn)");
+        String idopontmodosit = SzervizMain.bekerSzoveg();
+        String[] items = idopontmodosit.split(".");
+        String ev = items[0];
+        String ho = items[1];
+        String nap = items[2];
+        int eev = Integer.valueOf(ev);
+        int hoo = Integer.valueOf(ho);
+        int naap = Integer.valueOf(nap);
+        Foglalas modositani = new Foglalas(eev,hoo,naap);
+        for(int i=0; i<foglalasok.size(); i++)
+        {
+            if(foglalasok.get(i)==modositani)
+            {
+                azon = i;
+            }
+        }
+        foglalasok.remove(azon);
+        
+        
+        System.out.println("Adja meg az uj datumot: (eeee.hh.nn)");
+        String ujdatum = SzervizMain.bekerSzoveg();
+        String[] idok = ujdatum.split(".");
+        ev = items[0];
+        ho = items[1];
+        nap = items[2];
+        eev = Integer.valueOf(ev);
+        hoo = Integer.valueOf(ho);
+        naap = Integer.valueOf(nap);
+        Date uj = new Date(eev,hoo,naap);
+        foglalasok.add(uj);
+        
+        
+        System.out.println("=========Modositas kesz=========");
+        }
+        catch(IOException e)
+        {
+            System.out.println(SzervizMain.HIBAUZENET);
+        }
     }
 
 }

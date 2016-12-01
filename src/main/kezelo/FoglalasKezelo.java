@@ -1,8 +1,11 @@
 package main.kezelo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import main.SzervizMain;
 import main.modell.Foglalas;
 
@@ -15,6 +18,11 @@ public class FoglalasKezelo extends Kezelo {
         foglalasok = new ArrayList();
     }
     
+    
+    public void add(Foglalas uj)
+    {
+        foglalasok.add(uj);
+    }
     
     @Override
     public void hozzaad() {
@@ -45,10 +53,16 @@ public class FoglalasKezelo extends Kezelo {
 
     @Override
     public void torol() {
+        
+        
     }
 
     @Override
     public void listaz() {
+        for (int i =0;i<foglalasok.size();i++)
+        {
+            System.out.println((i+1) + ": " + foglalasok.get(i));
+        }
     }
 
     @Override

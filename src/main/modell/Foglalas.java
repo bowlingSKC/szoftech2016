@@ -1,18 +1,23 @@
 package main.modell;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class Foglalas {
     
-    private ArrayList idopontok;
+    Date idopontok;
 
-    public Foglalas() {
-        idopontok = new ArrayList();
+    public Foglalas(int ev, int ho, int nap) {
+        idopontok = new Date(ev,ho,nap);
+       
+    }
+
+    public Foglalas(Date idopontok) {
+        this.idopontok = idopontok;
+    }
+
+    public Date getIdopontok() {
+        return idopontok;
     }
     
     
-    public void add(Date ido)
-    {
-        idopontok.add(ido);
-    }
+    
 }

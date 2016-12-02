@@ -7,20 +7,37 @@ import main.modell.aktor.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import main.kezelo.FoglalasKezelo;
+import main.kezelo.MegrendelesKezelo;
+import main.kezelo.Raktar;
 
 public class SzervizMain {
 
     public static final String HIBAUZENET = "Hiba tortent az adatok bekerese kozben! Kerem probalja ujra!";
 
     private Felhasznalo bejelentkezett;     // bejelentkezett felhasználó
-
+    
     // kezelok
     private static final MunkalapKezelo munkalapKezelo = new MunkalapKezelo();
     private static final FelhasznaloKezelo felhasznaloKezelo = new FelhasznaloKezelo();
-
+    private static final FoglalasKezelo foglalasKezelo = new FoglalasKezelo();
+    private static final Raktar raktar = new Raktar();
     private void start() {
         udvozletKiir();
-
+        //tesztelésnek
+       /* foglalasKezelo.hozzaad();
+        foglalasKezelo.hozzaad();
+        foglalasKezelo.hozzaad();
+        foglalasKezelo.torol();
+        foglalasKezelo.listaz();
+        MegrendelesKezelo megrendeleskezelo = new MegrendelesKezelo(raktar);
+        raktar.hozzaad();
+        raktar.hozzaad();
+        raktar.listaz();
+        
+        megrendeleskezelo.hozzaad();
+        megrendeleskezelo.hozzaad();
+        megrendeleskezelo.listaz();*/
         while(true) {
             try {
                 menuKiir();

@@ -1,23 +1,31 @@
 package main.modell;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Megrendeles {
     
     private int azonosito;
     private int partazon;
-    private int darab;
+    
     private int koltseg;
-    private ArrayList<Alkatresz> alkatreszek;
+    private ArrayList<Tetel> soktetel;
+    
+    
+
+    public Megrendeles() {
+        
+        
+    }
+    
+    
 
     //konstruktor úgy van megírva, hogy alkatrész listát is vár
-    public Megrendeles(int azonosito, int partazon, int darab, int koltseg, List<Alkatresz> alkatreszek) {
+    public Megrendeles(int azonosito, int partazon, int koltseg, ArrayList<Tetel> soktetel) {
         this.azonosito = azonosito;
         this.partazon = partazon;
-        this.darab = darab;
+        
         this.koltseg = koltseg;
-        alkatreszek = new ArrayList();
+        this.soktetel = soktetel;
     }
 
     
@@ -31,19 +39,20 @@ public class Megrendeles {
         return koltseg;
     }
 
-    public void getMegrendeles()
+    public void kiirMegrendeles()
     {
         System.out.println("Azonosito: " + azonosito);
         System.out.println("Koltseg: " + koltseg);
         System.out.println("Megrendelt alkatreszek:");
-        for(int i = 0; i < alkatreszek.size(); i++)
+        for(int i = 0; i < soktetel.size(); i++)
         {
-            System.out.println(alkatreszek.get(i).getNev());
-            System.out.println(alkatreszek.get(i).getCikkszam());
-            System.out.println(alkatreszek.get(i).getMarka());
-            System.out.println(alkatreszek.get(i).getTipus());
-            System.out.println(alkatreszek.get(i).getBeszerzesiar());
-            System.out.println(alkatreszek.get(i).getEladasiAr());
+            System.out.println("Db: " + soktetel.get(i).getDarabalkatresz());
+            System.out.println(soktetel.get(i).getAlkatresz().getNev());
+            System.out.println(soktetel.get(i).getAlkatresz().getCikkszam());
+            System.out.println(soktetel.get(i).getAlkatresz().getMarka());
+            System.out.println(soktetel.get(i).getAlkatresz().getTipus());
+            System.out.println(soktetel.get(i).getAlkatresz().getBeszerzesiar());
+            System.out.println(soktetel.get(i).getAlkatresz().getEladasiAr());
         }
     }
 

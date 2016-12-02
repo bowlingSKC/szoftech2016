@@ -5,6 +5,7 @@ public class Auto {
     private String marka;
     private String tipus;
     
+    
     public Auto() {
         
         
@@ -43,6 +44,7 @@ public class Auto {
         this.tipus = tipus;
     }
     
+    @Override
     public String toString()
     {
         return "Rendszam: " + rendszam + "\n\tMarka: " + marka + "\n\tTipus: " + tipus;

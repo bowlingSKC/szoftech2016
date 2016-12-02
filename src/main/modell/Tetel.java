@@ -6,7 +6,20 @@ public class Tetel {
     private String leiras;
     private int ar;
     private Alkatresz alkatresz;
+    private int darabalkatresz; //csak hogy tudjuk menyni alkatrészt tüntetünk fel
 
+    
+    
+    public int getDarabalkatresz() {
+        return darabalkatresz;
+    }
+
+    public void setDarabalkatresz(int darabalkatresz) {
+        this.darabalkatresz = darabalkatresz;
+    }
+
+    
+    
     public String getMegnevezes() {
         return megnevezes;
     }

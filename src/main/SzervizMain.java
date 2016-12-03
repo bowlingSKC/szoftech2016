@@ -133,8 +133,15 @@ public class SzervizMain {
         return felhasznaloKezelo;
     }
 
+    public String felhasznaloazon()
+    {
+        return bejelentkezett.getSzemszam();
+    }
+    
     public static void main(String[] args) {
         new SzervizMain().start();
     }
+    
+    
     
 }

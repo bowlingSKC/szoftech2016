@@ -71,6 +71,7 @@ public class FoglalasKezelo extends Kezelo {
                 
                 dateString = sdf.format(foglalasok.get(i).getIdopontok());
                 System.out.println((i + 1) + ": " + dateString);
+                System.out.println("   Azonosito: " + foglalasok.get(i).getUgyfelazonosito());
             }
        
     }

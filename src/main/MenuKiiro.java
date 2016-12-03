@@ -22,6 +22,10 @@ public class MenuKiiro {
     }
 
     public static void recepciosMenuKiir() {
+        System.out.println("X. Kilepes");
+        System.out.println("0. Kijelentkezes");
+        System.out.println("1. Uj munkalap felvetele");
+        System.out.println("2. Munkalapok megtekintese");
 
     }
 

@@ -1,10 +1,14 @@
 package main.kezelo;
 
 
+import main.modell.Auto;
 import main.modell.aktor.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 import main.SzervizMain;
 
 public class FelhasznaloKezelo extends Kezelo<Felhasznalo> {
@@ -47,6 +51,20 @@ public class FelhasznaloKezelo extends Kezelo<Felhasznalo> {
         } catch (Exception ex) {
             System.out.println( SzervizMain.HIBAUZENET );
         }
+    }
+
+    public List<Felhasznalo> getFelhasznalok() {
+        return egyedek;
+    }
+
+    public List<Ugyfel> getUgyfelek() {
+        List<Ugyfel> ugyfelek = new ArrayList<>();
+        for(Felhasznalo felhasznalo : egyedek) {
+            if( felhasznalo instanceof Ugyfel ) {
+                ugyfelek.add((Ugyfel) felhasznalo);
+            }
+        }
+        return ugyfelek;
     }
 
     public void ugyfelHozzaad() {
@@ -110,6 +128,26 @@ public class FelhasznaloKezelo extends Kezelo<Felhasznalo> {
     @Override
     public List<Felhasznalo> kereses() {
         return null;
+    }
+
+    public void autoHozzaad(Ugyfel ugyfel) {
+        try {
+            Auto auto = new Auto();
+
+            System.out.println("Rendszam: ");
+            auto.setRendszam( SzervizMain.bekerSzoveg() );
+
+            System.out.println("Marka");
+            auto.setMarka( SzervizMain.bekerSzoveg() );
+
+            System.out.println("Tipus: ");
+            auto.setTipus( SzervizMain.bekerSzoveg() );
+
+            ugyfel.getAutok().add(auto);
+            System.out.println("Sikeresen felvette az autot!");
+        } catch (Exception ex){
+            System.out.println(SzervizMain.HIBAUZENET);
+        }
     }
 
 }

@@ -15,4 +15,5 @@ public abstract class Kezelo<T> {
 
     public abstract List<T> kereses();
 
+
 }

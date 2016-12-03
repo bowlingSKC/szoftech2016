@@ -67,6 +67,16 @@ public class FelhasznaloKezelo extends Kezelo<Felhasznalo> {
         return ugyfelek;
     }
 
+    public List<Szerelo> getSzerelok() {
+        List<Szerelo> szerelok = new ArrayList<>();
+        for(Felhasznalo felhasznalo : egyedek) {
+            if( felhasznalo instanceof Szerelo ) {
+                szerelok.add((Szerelo) felhasznalo);
+            }
+        }
+        return szerelok;
+    }
+
     public void ugyfelHozzaad() {
         try {
             System.out.print("Nev: ");

@@ -1,7 +1,6 @@
 package main;
 
-import main.kezelo.FelhasznaloKezelo;
-import main.kezelo.MunkalapKezelo;
+import main.kezelo.*;
 import main.modell.aktor.*;
 
 import java.io.BufferedReader;
@@ -11,27 +10,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import main.kezelo.FoglalasKezelo;
-import main.kezelo.Raktar;
-
 public class SzervizMain {
 
     public static final String HIBAUZENET = "Hiba tortent az adatok bekerese kozben! Kerem probalja ujra!";
 
     private Felhasznalo bejelentkezett;     // bejelentkezett felhasználó
-
-    private static List<Szerelo> szerelok = new ArrayList<>();
- 
     
     // kezelok
     private static final MunkalapKezelo munkalapKezelo = new MunkalapKezelo();
     private static final FelhasznaloKezelo felhasznaloKezelo = new FelhasznaloKezelo();
     FoglalasKezelo foglalasKezelo = new FoglalasKezelo(bejelentkezett);
     private static final Raktar raktar = new Raktar();
+    private static final MegrendelesKezelo megrendelesKezelo = new MegrendelesKezelo(raktar);
     private void start() {
         udvozletKiir();
 
         felhasznaloKezelo.getFelhasznalok().add(new Recepcios("aaa", "a", "b", "a", 11));
+        felhasznaloKezelo.getFelhasznalok().add(new Szerelo("szemszamSA", "Szerelo Istvan", "szerelo", "pswd", 23));
 
         //tesztelésnek
        /* foglalasKezelo.hozzaad();
@@ -123,6 +118,8 @@ public class SzervizMain {
             } catch (Exception ex) {
                 System.out.println(HIBAUZENET);
             }
+        } else if("3".equals(menu)) {
+            megrendelesKezelo.hozzaad();
         } else {
             System.out.println("Nincs ilyen menupont!");
         }
@@ -175,10 +172,6 @@ public class SzervizMain {
 
     public static FelhasznaloKezelo getFelhasznaloKezelo() {
         return felhasznaloKezelo;
-    }
-
-    public static List<Szerelo> getSzerelok() {
-        return szerelok;
     }
 
     public static void main(String[] args) {

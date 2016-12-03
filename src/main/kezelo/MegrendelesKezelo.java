@@ -24,7 +24,7 @@ public class MegrendelesKezelo extends Kezelo {
         
         hossz++; //megrendelesazonosito
         
-        
+        //vadiúj alkatrész esetén előbb a raktárosnak kell majd "bevételezni".
         
         int partaz;
         
@@ -36,7 +36,7 @@ public class MegrendelesKezelo extends Kezelo {
             System.out.println("Tetel megnevezese:");
             egytetel.setMegnevezes(SzervizMain.bekerSzoveg());
             System.out.println("Kerem adja meg az alkatresz cikszamat: ");
-            egytetel.setAlkatresz(raktar.getAlkatresz(SzervizMain.bekerSzam())); //cikszám
+            egytetel.setAlkatresz(raktar.getAlkatresz(SzervizMain.bekerSzam())); //cikkszám
             System.out.println("Adja meg az alkatresz darabszamat: ");
             egytetel.setDarabalkatresz(SzervizMain.bekerSzam());
             System.out.println("Tetel leirasa:");
@@ -60,7 +60,16 @@ public class MegrendelesKezelo extends Kezelo {
 
     @Override
     public void torol() {
-        
+        listaz();
+        System.out.println("Adja meg a torendo megrendeles szamat:");
+        try {
+            int torol = SzervizMain.bekerSzam();
+            egyedek.remove(torol);
+            System.out.println("Torles megtortent");
+            System.out.println();
+        } catch (IOException ex) {
+             System.out.println(SzervizMain.HIBAUZENET);
+        }
     }
 
     @Override

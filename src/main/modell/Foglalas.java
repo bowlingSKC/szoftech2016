@@ -29,6 +29,11 @@ public class Foglalas {
         return idopontok;
     }
     
+    public String getUgyfelazonosito()
+    {
+        return ugyfelazonosito;
+    }
+    
     
     
 }

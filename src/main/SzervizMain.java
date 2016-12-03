@@ -21,7 +21,7 @@ public class SzervizMain {
     // kezelok
     private static final MunkalapKezelo munkalapKezelo = new MunkalapKezelo();
     private static final FelhasznaloKezelo felhasznaloKezelo = new FelhasznaloKezelo();
-    private static final FoglalasKezelo foglalasKezelo = new FoglalasKezelo();
+    private FoglalasKezelo foglalasKezelo = new FoglalasKezelo(bejelentkezett.getSzemszam());
     private static final Raktar raktar = new Raktar();
     private void start() {
         udvozletKiir();

@@ -36,4 +36,10 @@ public class MenuKiiro {
 
         System.out.println("9. Kijelentkezes");
     }
+    
+    public static void keresesMenuKiir() {
+        System.out.println("X. Kilepes");
+        System.out.println("1. Cikkszam alapjan");
+        System.out.println("2. Nev alapjan");
+    }
 }

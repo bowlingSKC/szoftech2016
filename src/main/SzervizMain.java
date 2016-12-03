@@ -90,7 +90,7 @@ public class SzervizMain {
         if( bejelentkezett == null ) {      // senki sincs bejelentkezve
             vendegMenuVegrehajt(menu);
         } else if( bejelentkezett instanceof Ugyfel) {     // ügyfél van bejelentkezve
-
+            ugyfelMenuVegrehajt(menu);
         } else if( bejelentkezett instanceof Tulajdonos ) { // tulajdonos van bejelentkezve
 
         } else if( bejelentkezett instanceof Recepcios ) {  // recepcios van bejelentkezve
@@ -115,6 +115,24 @@ public class SzervizMain {
             felhasznaloKezelo.ugyfelHozzaad();
         } else {
             System.out.println("Nincs ilyen menupont!");
+        }
+    }
+    
+    private void ugyfelMenuVegrehajt(String menu) {
+        if( "0".equals(menu) ) {
+            Felhasznalo bejelentkezett = felhasznaloKezelo.bejelentkezes();
+            if( bejelentkezett == null ) {
+                System.out.println("Hibas felhasznalonev/jelszo!");
+            }
+            this.bejelentkezett = bejelentkezett;
+        } else if( "2".equals(menu) ) {
+            raktar.kereses();
+        } else if("X".equals(menu.toUpperCase())){
+              // TODO fajlba mentes
+            
+        } else {
+            System.out.println("Nincs ilyen menupont!");
+            
         }
     }
 

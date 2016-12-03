@@ -29,15 +29,17 @@ public class FoglalasKezelo extends Kezelo {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy.M.dd HH:mm");
             System.out.println("Adja meg a doglalas idopontjat: (eeee.hh.nn hh:mm)");
             String mikorra = SzervizMain.bekerSzoveg();
-            String azon = SzervizMain; //ebbe kell beletölteni a  bejelentkezett felhaszánló azonosítóját.
+            System.out.println("Szemelyi azonosito:");
+            String azon = SzervizMain.bekerSzoveg(); //ebbe kell beletölteni a  bejelentkezett felhaszánló azonosítóját.
+          
             Foglalas uj;
-            uj = new Foglalas(sdf.parse(mikorra), SzervizMain.);
+            uj = new Foglalas(sdf.parse(mikorra), azon); //ide kell még a szemszám
             foglalasok.add(uj);
 
         } catch (IOException ep) {
             System.out.println(SzervizMain.HIBAUZENET);
         } catch (ParseException ex) {
-            Logger.getLogger(FoglalasKezelo.class.getName()).log(Level.SEVERE, null, ex);
+             System.out.println(SzervizMain.HIBAUZENET);
         }
 
     }
@@ -79,9 +81,32 @@ public class FoglalasKezelo extends Kezelo {
         return null;
     }
 
-    public void FoglalasModositas() {
-        torol();
-        //pár dolog, hogy mit adjon hozzá
-        hozzaad();
+    public void FoglalasModositas() throws ParseException {
+        
+        try {
+            System.out.println("Foglalt idopontok: ");
+            listaz();
+            System.out.println();
+            System.out.println("Modositani kivant idopon azonositoja: ");
+            int azon = SzervizMain.bekerSzam(); 
+           
+            foglalasok.remove(azon-1);
+            
+            System.out.println("Uj idopont:");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.M.dd HH:mm");
+            System.out.println("Adja meg a doglalas idopontjat: (eeee.hh.nn hh:mm)");
+            String mikorra = SzervizMain.bekerSzoveg();
+            System.out.println("Szemelyi azonosito:");
+            String szemszam = SzervizMain.bekerSzoveg();
+            Foglalas uj;
+            uj = new Foglalas(sdf.parse(mikorra), szemszam); //ide kell még a szemszám
+            foglalasok.add(uj);
+
+        } catch (IOException ep) {
+            System.out.println(SzervizMain.HIBAUZENET);
+        }
+           System.out.println("Modositas kesz!");
+        
+       
     }
 }

@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import main.kezelo.FoglalasKezelo;
-import main.kezelo.MegrendelesKezelo;
 import main.kezelo.Raktar;
 
 public class SzervizMain {
@@ -16,6 +15,8 @@ public class SzervizMain {
     public static final String HIBAUZENET = "Hiba tortent az adatok bekerese kozben! Kerem probalja ujra!";
 
     private Felhasznalo bejelentkezett;     // bejelentkezett felhasználó
+    
+ 
     
     // kezelok
     private static final MunkalapKezelo munkalapKezelo = new MunkalapKezelo();
@@ -133,10 +134,7 @@ public class SzervizMain {
         return felhasznaloKezelo;
     }
 
-    public String felhasznaloazon()
-    {
-        return bejelentkezett.getSzemszam();
-    }
+    
     
     public static void main(String[] args) {
         new SzervizMain().start();

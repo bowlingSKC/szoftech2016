@@ -7,15 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 import main.SzervizMain;
 import main.modell.Foglalas;
+import main.modell.aktor.Felhasznalo;
 
 public class FoglalasKezelo extends Kezelo {
 
     private List<Foglalas> foglalasok;
-    String azon;
+    Felhasznalo akinekkellazazonja;
 
-    public FoglalasKezelo(String azon) {
+    public FoglalasKezelo(Felhasznalo bejelentkezett) {
         foglalasok = new ArrayList<>();
-        this.azon = azon;
+        akinekkellazazonja = bejelentkezett;
     }
 
     public void add(Foglalas uj) {
@@ -33,7 +34,7 @@ public class FoglalasKezelo extends Kezelo {
             String azon = SzervizMain.bekerSzoveg(); //ebbe kell beletölteni a  bejelentkezett felhaszánló azonosítóját.
           */
             Foglalas uj;
-            uj = new Foglalas(sdf.parse(mikorra), azon); //ide kell még a szemszám
+            uj = new Foglalas(sdf.parse(mikorra), akinekkellazazonja.getSzemszam()); //ide kell még a szemszám
             foglalasok.add(uj);
 
         } catch (IOException ep) {
@@ -100,7 +101,7 @@ public class FoglalasKezelo extends Kezelo {
          /*   System.out.println("Szemelyi azonosito:");
             String szemszam = SzervizMain.bekerSzoveg();*/
             Foglalas uj;
-            uj = new Foglalas(sdf.parse(mikorra), azon); //ide kell még a szemszám
+            uj = new Foglalas(sdf.parse(mikorra), akinekkellazazonja.getSzemszam()); //ide kell még a szemszám
             foglalasok.add(uj);
 
         } catch (IOException ep) {

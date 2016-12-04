@@ -20,7 +20,9 @@ public class MenuKiiro {
     }
 
     public static void tulajdonosMenuKiir() {
-
+        System.out.println("X. Kilepes");
+        System.out.println("0. Kijelentkezes");
+        System.out.println("1. Megrenedeles keszitese");
     }
 
     public static void recepciosMenuKiir() {

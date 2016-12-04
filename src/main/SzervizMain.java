@@ -187,6 +187,20 @@ public class SzervizMain {
             
         }
     }
+    
+    private void tulajdonosMenuVegrehajt(String menu)
+    {
+        if( "0".equals(menu) ) {
+            Felhasznalo bejelentkezett = felhasznaloKezelo.bejelentkezes();
+            if( bejelentkezett == null ) {
+                System.out.println("Hibas felhasznalonev/jelszo!");
+            }
+            this.bejelentkezett = bejelentkezett;
+        }else if("1".equals(menu))
+        {
+            megrendelesKezelo.hozzaad();
+        }
+    }
 
     public static String bekerSzoveg() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

@@ -6,9 +6,7 @@ import main.modell.aktor.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
+import java.text.ParseException;
 
 public class SzervizMain {
 
@@ -85,7 +83,7 @@ public class SzervizMain {
         }
     }
 
-    private void menuVegrehajt(String menu) {
+    private void menuVegrehajt(String menu) throws ParseException {
         if( bejelentkezett == null ) {      // senki sincs bejelentkezve
             vendegMenuVegrehajt(menu);
         } else if( bejelentkezett instanceof Ugyfel) {     // ügyfél van bejelentkezve
@@ -119,7 +117,11 @@ public class SzervizMain {
             megrendelesKezelo.hozzaad();
         } else if("4".equals(menu)) {
             szamlaKezelo.hozzaad();
-        } else {
+        } else if("5".equals(menu))
+        {
+            foglalasKezelo.listaz();
+        }
+        else {
             System.out.println("Nincs ilyen menupont!");
         }
     }
@@ -138,7 +140,7 @@ public class SzervizMain {
         }
     }
     
-    private void ugyfelMenuVegrehajt(String menu) {
+    private void ugyfelMenuVegrehajt(String menu) throws ParseException {
         if( "0".equals(menu) ) {
             Felhasznalo bejelentkezett = felhasznaloKezelo.bejelentkezes();
             if( bejelentkezett == null ) {
@@ -147,7 +149,14 @@ public class SzervizMain {
             this.bejelentkezett = bejelentkezett;
         } else if( "2".equals(menu) ) {
             raktar.kereses();
-        } else if("X".equals(menu.toUpperCase())){
+        } else if( "3".equals(menu))
+        {
+            foglalasKezelo.hozzaad();
+        }else if( "4".equals(menu))
+        {
+            foglalasKezelo.FoglalasModositas();
+        }
+        else if("X".equals(menu.toUpperCase())){
               // TODO fajlba mentes
             
         } else {

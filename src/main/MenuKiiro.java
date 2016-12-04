@@ -14,6 +14,8 @@ public class MenuKiiro {
         System.out.println("X. Kilepes");
         System.out.println("0. Kijelentkezes");
         System.out.println("2. ...");
+        System.out.println("3. Foglalas hozzaadasa");
+        System.out.println("4. Foglalas Modositasa");
         System.out.println("9. Kijelentkezes");
     }
 
@@ -28,6 +30,7 @@ public class MenuKiiro {
         System.out.println("2. Munkalapok megtekintese");
         System.out.println("3. Megrendeles felvetele");
         System.out.println("4. Szamla kiallitasa");
+        System.out.println("5. Foglalasok listazasa");
     }
 
     public static void raktarosMenuKiir() {

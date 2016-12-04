@@ -98,7 +98,7 @@ public class SzervizMain {
         } else if( bejelentkezett instanceof Recepcios ) {  // recepcios van bejelentkezve
             recepciosMenuVegrehajt(menu);
         } else if( bejelentkezett instanceof Raktaros ) {   // raktaros van bejelentkezve
-
+            raktarosMenuVegrehajt(menu);
         } else if( bejelentkezett instanceof Szerelo ) {    // szerelo van bejelentkezve
 
         } else {                                            // ennek sose szabadna lefutnia, ha igen akkor kivetel lesz
@@ -151,6 +151,29 @@ public class SzervizMain {
         } else if("X".equals(menu.toUpperCase())){
               // TODO fajlba mentes
             
+        } else {
+            System.out.println("Nincs ilyen menupont!");
+            
+        }
+    }
+    
+    private void raktarosMenuVegrehajt(String menu) {
+        if( "0".equals(menu) ) {
+            Felhasznalo bejelentkezett = felhasznaloKezelo.bejelentkezes();
+            if( bejelentkezett == null ) {
+                System.out.println("Hibas felhasznalonev/jelszo!");
+            }
+            this.bejelentkezett = bejelentkezett;
+        } else if( "1".equals(menu) ) {
+            raktar.listaz();
+        } else if( "2".equals(menu) ) {
+            raktar.kereses();
+        } else if( "3".equals(menu) ) {
+            raktar.hozzaad();
+        } else if( "4".equals(menu) ) {
+            raktar.torol();  
+        } else if("X".equals(menu.toUpperCase())){
+              // TODO fajlba mentes    
         } else {
             System.out.println("Nincs ilyen menupont!");
             

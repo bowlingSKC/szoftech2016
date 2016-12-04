@@ -180,7 +180,11 @@ public class SzervizMain {
             raktar.hozzaad();
         } else if( "4".equals(menu) ) {
             raktar.torol();  
-        } else if("X".equals(menu.toUpperCase())){
+        } else if( "5".equals(menu))
+        {
+            megrendelesKezelo.hozzaad();
+        }
+        else if("X".equals(menu.toUpperCase())){
               // TODO fajlba mentes    
         } else {
             System.out.println("Nincs ilyen menupont!");

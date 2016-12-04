@@ -31,6 +31,13 @@ public class MenuKiiro {
     }
 
     public static void raktarosMenuKiir() {
+        System.out.println("X. Kilepes");
+        System.out.println("0. Kijelentkezes");
+        System.out.println("1. Alkatrészek listazasa");
+        System.out.println("2. Kereses");
+        System.out.println("3. Alkatrész hozzaadasa");
+        System.out.println("4. Alkatrész torlese");
+        
 
     }
 

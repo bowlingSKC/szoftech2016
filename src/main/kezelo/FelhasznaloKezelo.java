@@ -160,7 +160,7 @@ public class FelhasznaloKezelo extends Kezelo<Felhasznalo> {
         }
     }
 
-    public void setEgyedek(List<Felhasznalo> egyedek) {
+    public void setEgyedek(ArrayList<Felhasznalo> egyedek) {
         this.egyedek = egyedek;
     }
 

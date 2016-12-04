@@ -18,7 +18,7 @@ public class FajlKezelo {
     private static final String WORKSHEET_FILE_PATH = "munkalapok.dat";
 
     public static void feltolt() {
-        List<Felhasznalo> felhasznalok = new ArrayList<>();
+        ArrayList<Felhasznalo> felhasznalok = new ArrayList<>();
         felhasznalok.add(new Raktaros("123456SA", "Raktaros Robi", "pswd", "robi@szerviz.com", 870));
         felhasznalok.add(new Raktaros("785648SA", "Toth Janos", "pswd", "janos@szerviz.com", 900));
         felhasznalok.add(new Recepcios("456784SA", "Recepcios Roberta", "pswd", "reci@szerviz.com", 850));
@@ -53,7 +53,10 @@ public class FajlKezelo {
         m2.setIdo(3);
         m2.setSzerelo(szerelo);
 
-        munkalapokMent(Arrays.asList(m1, m2));
+        ArrayList<Munkalap> munkalaok = new ArrayList<>();
+        munkalaok.add(m1);
+        munkalaok.add(m2);
+        munkalapokMent(munkalaok);
     }
 
     public static void felhasznalokMent(List<Felhasznalo> felhasznalok) {
@@ -78,22 +81,22 @@ public class FajlKezelo {
         }
     }
 
-    public static List<Felhasznalo> felhasznalokBeolvas() {
+    public static ArrayList<Felhasznalo> felhasznalokBeolvas() {
         try {
             FileInputStream fis = new FileInputStream(USER_FILE_PATH);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            return (List<Felhasznalo>) ois.readObject();
+            return (ArrayList<Felhasznalo>) ois.readObject();
         } catch (Exception ex) {
             System.out.println("Nem sikerult az adatok beolvasasa!");
             return new ArrayList<>();
         }
     }
 
-    public static List<Munkalap> munkalapokBeolvas() {
+    public static ArrayList<Munkalap> munkalapokBeolvas() {
         try {
             FileInputStream fis = new FileInputStream(WORKSHEET_FILE_PATH);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            return (List<Munkalap>) ois.readObject();
+            return (ArrayList<Munkalap>) ois.readObject();
         } catch (Exception ex) {
             System.out.println("Nem sikerult az adatok beolvasasa!");
             return new ArrayList<>();

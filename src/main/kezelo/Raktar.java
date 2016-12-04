@@ -21,8 +21,19 @@ public class Raktar extends Kezelo {
     public void hozzaad() { //nincs teljesen megírva
          Alkatresz alkatresz = new Alkatresz();
         try {
+            System.out.println("A termek cikkszama: ");
             alkatresz.setCikkszam(SzervizMain.bekerSzam());
-            alkatresz.setBeszerzesiar(alkatresz.getCikkszam());
+            System.out.println("A termek markaja: ");
+            alkatresz.setMarka(SzervizMain.bekerSzoveg());
+            System.out.println("A termek neve: ");
+            alkatresz.setNev(SzervizMain.bekerSzoveg());
+            System.out.println("A termek tipusa: ");
+            alkatresz.setTipus(SzervizMain.bekerSzoveg());
+            System.out.println("A termek eladasi ara: ");
+            alkatresz.setEladasiAr(SzervizMain.bekerSzam());
+            System.out.println("A termek beszerzesi ara: ");
+            alkatresz.setBeszerzesiar(SzervizMain.bekerSzam());
+            
             
         } catch (IOException ex) {
              System.out.println(SzervizMain.HIBAUZENET);
@@ -38,7 +49,14 @@ public class Raktar extends Kezelo {
         for(int i = 0; i < egyedek.size(); i++)
         {
            Alkatresz a =  (Alkatresz) egyedek.get(i);
-            System.out.println(a.getCikkszam());
+            System.out.println("A termek cikkszama: " + a.getCikkszam());
+            System.out.println("A termek markaja: " + a.getMarka());
+            System.out.println("A termek neve: " + a.getNev());
+            System.out.println("A termek tipusa: " + a.getTipus());
+            System.out.println("A termek beszerzesi ara: " + a.getBeszerzesiar());
+            System.out.println("A termek eladasi ara: " + a.getEladasiAr());
+            System.out.println();
+            
         }
     }
 
@@ -63,9 +81,9 @@ public class Raktar extends Kezelo {
                         exist=true;   
                     }
                     if(exist) {
-                        return (List) this.egyedek.get(id);
+                        return (List) egyedek.get(id);
                     } else {
-                        return (List) this.egyedek.get(id);
+                        return (List) egyedek.get(id);
                     }
                 }    
             break;

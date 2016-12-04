@@ -1,5 +1,6 @@
 package main.modell;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Szamla {
@@ -10,6 +11,11 @@ public class Szamla {
 
     public Date getKiallitasDatuma() {
         return kiallitasDatuma;
+    }
+
+    @Override
+    public String toString() {
+        return "Ugyfel: " + ugyfelNev + ", kiallitas datuma: " + new SimpleDateFormat("yyyy-MM-dd").format(kiallitasDatuma) + ", ar: " + osszeg + " Ft";
     }
 
     public void setKiallitasDatuma(Date kiallitasDatuma) {

@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class Kezelo<T> {
 
-    protected List<T> egyedek = new ArrayList<T>();
+    protected ArrayList<T> egyedek = new ArrayList<T>();
 
     public abstract void hozzaad();
 

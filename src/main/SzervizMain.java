@@ -39,11 +39,11 @@ public class SzervizMain {
                 System.out.print("A valasztott menu: ");
                 String menu = bekerSzoveg();
                 if("X".equals(menu.toUpperCase()) || "0".equals(menu)) {
-                    FajlKezelo.felhasznalokMent( felhasznaloKezelo.getFelhasznalok() );
-                    FajlKezelo.munkalapokMent( munkalapKezelo.getMunkalapok() );
                     if( "0".equals(menu) ) {
                         bejelentkezett = null;
                     } else {
+                        FajlKezelo.felhasznalokMent( felhasznaloKezelo.getFelhasznalok() );
+                        FajlKezelo.munkalapokMent( munkalapKezelo.getMunkalapok() );
                         break;
                     }
                 } else {
@@ -95,9 +95,17 @@ public class SzervizMain {
         } else if( bejelentkezett instanceof Raktaros ) {   // raktaros van bejelentkezve
             raktarosMenuVegrehajt(menu);
         } else if( bejelentkezett instanceof Szerelo ) {    // szerelo van bejelentkezve
-
+            szereloMenuVegrehajt(menu);
         } else {                                            // ennek sose szabadna lefutnia, ha igen akkor kivetel lesz
             throw new IllegalArgumentException("Valami hiba van a bejelentkezett felhasznalot illetoen!");
+        }
+    }
+
+    private void szereloMenuVegrehajt(String menu) {
+        if("3".equals(menu)) {
+            munkalapKezelo.szerkeszt();
+        } else {
+            System.out.println("Nincs ilyen menupont!");
         }
     }
 
@@ -117,9 +125,10 @@ public class SzervizMain {
             megrendelesKezelo.hozzaad();
         } else if("4".equals(menu)) {
             szamlaKezelo.hozzaad();
-        } else if("5".equals(menu))
-        {
+        } else if("5".equals(menu)) {
             foglalasKezelo.listaz();
+        } else if("6".equals(menu)) {
+            szamlaKezelo.listaz();
         }
         else {
             System.out.println("Nincs ilyen menupont!");
@@ -191,7 +200,7 @@ public class SzervizMain {
             
         }
     }
-    
+
     private void tulajdonosMenuVegrehajt(String menu)
     {
         if( "0".equals(menu) ) {

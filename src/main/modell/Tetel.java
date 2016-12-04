@@ -10,8 +10,11 @@ public class Tetel implements Serializable {
     private Alkatresz alkatresz;
     private int darabalkatresz; //csak hogy tudjuk menyni alkatrészt tüntetünk fel
 
-    
-    
+    @Override
+    public String toString() {
+        return megnevezes + "(oka: " + leiras + ") " + ar + " Ft";
+    }
+
     public int getDarabalkatresz() {
         return darabalkatresz;
     }

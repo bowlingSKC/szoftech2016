@@ -43,7 +43,7 @@ public class Munkalap implements Serializable {
         String content = azonosito + " munkalap:\n";
         content += "Hiba: " + hibaleiras + "\n";
         content += "Allapot: " + allapot.getName() + "\n";
-        content += "Felhasznalt orak szama: " + ido;
+        content += "Felhasznalt orak szama: " + ido + "\n";
         content += "Ugyfel, auto: " + auto.getRendszam() + "\n";
         content += "Szerelo: " + szerelo.getNev() + "\n";
         content += "Szerelesi tetelek:\n";

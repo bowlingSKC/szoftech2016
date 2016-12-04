@@ -18,7 +18,7 @@ public class Ugyfel extends Felhasznalo implements Serializable {
     }
 
     public Ugyfel(String szemszam, String nev, String jelszo, String email, int egyenleg) {
-        super(szemszam, nev, email, jelszo);
+        super(szemszam, nev, jelszo, email);
         this.egyenleg = egyenleg;
     }
 

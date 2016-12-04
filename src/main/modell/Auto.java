@@ -2,7 +2,9 @@ package main.modell;
 
 import main.modell.aktor.Ugyfel;
 
-public class Auto {
+import java.io.Serializable;
+
+public class Auto implements Serializable {
     private String rendszam;
     private String marka;
     private String tipus;

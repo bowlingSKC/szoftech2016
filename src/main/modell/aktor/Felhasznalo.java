@@ -1,6 +1,8 @@
 package main.modell.aktor;
 
-public class Felhasznalo {
+import java.io.Serializable;
+
+public class Felhasznalo implements Serializable {
     
     protected String szemszam;
     protected String nev;

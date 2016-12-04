@@ -3,10 +3,11 @@ package main.modell.aktor;
 import main.modell.Auto;
 import main.modell.Foglalas;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ugyfel extends Felhasznalo {
+public class Ugyfel extends Felhasznalo implements Serializable {
 
     private int egyenleg;
     private List<Auto> autok = new ArrayList<>();
@@ -17,7 +18,7 @@ public class Ugyfel extends Felhasznalo {
     }
 
     public Ugyfel(String szemszam, String nev, String jelszo, String email, int egyenleg) {
-        super(szemszam, nev, jelszo, email);
+        super(szemszam, nev, email, jelszo);
         this.egyenleg = egyenleg;
     }
 

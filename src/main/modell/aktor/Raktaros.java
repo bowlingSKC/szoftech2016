@@ -1,6 +1,8 @@
 package main.modell.aktor;
 
-public class Raktaros extends Alkalmazott {
+import java.io.Serializable;
+
+public class Raktaros extends Alkalmazott implements Serializable {
 
     public Raktaros() {
     }

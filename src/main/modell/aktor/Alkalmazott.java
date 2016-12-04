@@ -1,6 +1,8 @@
 package main.modell.aktor;
 
-public class Alkalmazott extends Felhasznalo {
+import java.io.Serializable;
+
+public class Alkalmazott extends Felhasznalo implements Serializable {
 
     protected int oraber;
 

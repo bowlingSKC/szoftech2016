@@ -82,4 +82,12 @@ public class MunkalapKezelo extends Kezelo<Munkalap> {
     public List<Munkalap> kereses() {
         return null;
     }
+
+    public void setEgyedek(List<Munkalap> munkalaps) {
+        this.egyedek = munkalaps;
+    }
+
+    public List<Munkalap> getMunkalapok() {
+        return egyedek;
+    }
 }

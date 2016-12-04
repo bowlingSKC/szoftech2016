@@ -2,10 +2,11 @@ package main.modell;
 
 import main.modell.aktor.Szerelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Munkalap {
+public class Munkalap implements Serializable {
 
     public static enum MunkalapAllapot {
         UJ("Új"), FOLYAMATBAN("Folyamatban"), KESZ("Kesz");

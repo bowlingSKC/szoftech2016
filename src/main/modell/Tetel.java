@@ -1,6 +1,8 @@
 package main.modell;
 
-public class Tetel {
+import java.io.Serializable;
+
+public class Tetel implements Serializable {
 
     private String megnevezes;
     private String leiras;

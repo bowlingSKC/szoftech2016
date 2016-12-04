@@ -1,6 +1,8 @@
 package main.modell.aktor;
 
-public class Szerelo extends Alkalmazott {
+import java.io.Serializable;
+
+public class Szerelo extends Alkalmazott implements Serializable {
 
     public Szerelo() {
     }

@@ -24,8 +24,15 @@ public class SzervizMain {
     private static final MegrendelesKezelo megrendelesKezelo = new MegrendelesKezelo(raktar);
     private static final SzamlaKezelo szamlaKezelo = new SzamlaKezelo();
     private void start() {
-        udvozletKiir();
 
+        if( FajlKezelo.felhasznalokBeolvas().isEmpty() ) {
+            FajlKezelo.feltolt();
+        }
+
+        felhasznaloKezelo.setEgyedek( FajlKezelo.felhasznalokBeolvas() );
+        munkalapKezelo.setEgyedek( FajlKezelo.munkalapokBeolvas() );
+
+        udvozletKiir();
 
         while(true) {
             try {
@@ -34,7 +41,8 @@ public class SzervizMain {
                 System.out.print("A valasztott menu: ");
                 String menu = bekerSzoveg();
                 if("X".equals(menu.toUpperCase()) || "0".equals(menu)) {
-                    // TODO fajlba mentes
+                    FajlKezelo.felhasznalokMent( felhasznaloKezelo.getFelhasznalok() );
+                    FajlKezelo.munkalapokMent( munkalapKezelo.getMunkalapok() );
                     if( "0".equals(menu) ) {
                         bejelentkezett = null;
                     } else {

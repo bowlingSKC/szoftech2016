@@ -1,9 +1,12 @@
 package main.modell;
 
+import main.modell.aktor.Ugyfel;
+
 public class Auto {
     private String rendszam;
     private String marka;
     private String tipus;
+    private Ugyfel tulajdonos;
     
     
     public Auto() {
@@ -43,7 +46,15 @@ public class Auto {
     public void setTipus(String tipus) {
         this.tipus = tipus;
     }
-    
+
+    public Ugyfel getTulajdonos() {
+        return tulajdonos;
+    }
+
+    public void setTulajdonos(Ugyfel tulajdonos) {
+        this.tulajdonos = tulajdonos;
+    }
+
     @Override
     public String toString()
     {

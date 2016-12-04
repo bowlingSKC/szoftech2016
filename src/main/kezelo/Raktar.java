@@ -12,7 +12,7 @@ import static main.SzervizMain.bekerSzam;
 import static main.SzervizMain.bekerSzoveg;
 
 
-public class Raktar extends Kezelo {
+public class Raktar extends Kezelo<Alkatresz> {
     
    
     
@@ -48,7 +48,7 @@ public class Raktar extends Kezelo {
     public void listaz() {
         for(int i = 0; i < egyedek.size(); i++)
         {
-           Alkatresz a =  (Alkatresz) egyedek.get(i);
+           Alkatresz a =  egyedek.get(i);
             System.out.println("A termek cikkszama: " + a.getCikkszam());
             System.out.println("A termek markaja: " + a.getMarka());
             System.out.println("A termek neve: " + a.getNev());
@@ -61,7 +61,7 @@ public class Raktar extends Kezelo {
     }
 
     @Override
-    public List kereses() {
+    public List<Alkatresz> kereses() {
         boolean exist=false;
         if(this.egyedek.isEmpty()) {
             System.out.println("Nincs elem a raktarban!");
@@ -76,7 +76,7 @@ public class Raktar extends Kezelo {
                 System.out.println("Adja meg a cikkszamot: ");
                 int id = bekerSzam();
                 for(int i=0;i<this.egyedek.size();i++) {
-                    Alkatresz a = (Alkatresz) egyedek.get(i);
+                    Alkatresz a = egyedek.get(i);
                     if(a.getCikkszam()== id) {
                         exist=true;   
                     }
@@ -92,7 +92,7 @@ public class Raktar extends Kezelo {
                 String nev = bekerSzoveg();
                 id=0;
                 for(int i=0;i<this.egyedek.size();i++) {
-                    Alkatresz a = (Alkatresz) egyedek.get(i);
+                    Alkatresz a = egyedek.get(i);
                     if(a.getNev().equalsIgnoreCase(nev)) {
                         exist=true;
                         id=i;

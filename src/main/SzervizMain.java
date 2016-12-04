@@ -22,35 +22,24 @@ public class SzervizMain {
     FoglalasKezelo foglalasKezelo = new FoglalasKezelo(bejelentkezett);
     private static final Raktar raktar = new Raktar();
     private static final MegrendelesKezelo megrendelesKezelo = new MegrendelesKezelo(raktar);
+    private static final SzamlaKezelo szamlaKezelo = new SzamlaKezelo();
     private void start() {
         udvozletKiir();
 
-        felhasznaloKezelo.getFelhasznalok().add(new Recepcios("aaa", "a", "b", "a", 11));
-        felhasznaloKezelo.getFelhasznalok().add(new Szerelo("szemszamSA", "Szerelo Istvan", "szerelo", "pswd", 23));
 
-        //tesztelésnek
-       /* foglalasKezelo.hozzaad();
-        foglalasKezelo.hozzaad();
-        foglalasKezelo.hozzaad();
-        foglalasKezelo.torol();
-        foglalasKezelo.listaz();
-        MegrendelesKezelo megrendeleskezelo = new MegrendelesKezelo(raktar);
-        raktar.hozzaad();
-        raktar.hozzaad();
-        raktar.listaz();
-        
-        megrendeleskezelo.hozzaad();
-        megrendeleskezelo.hozzaad();
-        megrendeleskezelo.listaz();*/
         while(true) {
             try {
                 menuKiir();
 
                 System.out.print("A valasztott menu: ");
                 String menu = bekerSzoveg();
-                if("X".equals(menu.toUpperCase())) {
+                if("X".equals(menu.toUpperCase()) || "0".equals(menu)) {
                     // TODO fajlba mentes
-                    break;
+                    if( "0".equals(menu) ) {
+                        bejelentkezett = null;
+                    } else {
+                        break;
+                    }
                 } else {
                     menuVegrehajt(menu);
                 }
@@ -120,6 +109,8 @@ public class SzervizMain {
             }
         } else if("3".equals(menu)) {
             megrendelesKezelo.hozzaad();
+        } else if("4".equals(menu)) {
+            szamlaKezelo.hozzaad();
         } else {
             System.out.println("Nincs ilyen menupont!");
         }

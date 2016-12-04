@@ -27,7 +27,7 @@ public class MenuKiiro {
         System.out.println("1. Uj munkalap felvetele");
         System.out.println("2. Munkalapok megtekintese");
         System.out.println("3. Megrendeles felvetele");
-
+        System.out.println("4. Szamla kiallitasa");
     }
 
     public static void raktarosMenuKiir() {

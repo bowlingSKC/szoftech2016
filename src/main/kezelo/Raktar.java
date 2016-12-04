@@ -18,7 +18,7 @@ public class Raktar extends Kezelo<Alkatresz> {
     
     
     @Override
-    public void hozzaad() { //nincs teljesen megírva
+    public void hozzaad() {
          Alkatresz alkatresz = new Alkatresz();
         try {
             System.out.println("A termek cikkszama: ");
@@ -61,7 +61,11 @@ public class Raktar extends Kezelo<Alkatresz> {
     }
 
     @Override
-    public List<Alkatresz> kereses() {
+    public List kereses() {
+        return null;
+    }
+    
+    public Alkatresz alkatreszkereses() {
         boolean exist=false;
         if(this.egyedek.isEmpty()) {
             System.out.println("Nincs elem a raktarban!");
@@ -73,6 +77,7 @@ public class Raktar extends Kezelo<Alkatresz> {
             input = bekerSzam();
             switch (input) {
             case 1: 
+            {
                 System.out.println("Adja meg a cikkszamot: ");
                 int id = bekerSzam();
                 for(int i=0;i<this.egyedek.size();i++) {
@@ -80,30 +85,33 @@ public class Raktar extends Kezelo<Alkatresz> {
                     if(a.getCikkszam()== id) {
                         exist=true;   
                     }
-                    if(exist) {
-                        return (List) egyedek.get(id);
-                    } else {
-                        return (List) egyedek.get(id);
-                    }
+                }   
+                if(exist) {
+                    return egyedek.get(id);
+                } else {
+                    System.out.println("Nincs megfelelo adat!");
+                    return null;
                 }    
-            break;
+            }
             case 2:
+            {
                 System.out.println("Adja meg a nevet: ");
                 String nev = bekerSzoveg();
-                id=0;
+                int id=0;
                 for(int i=0;i<this.egyedek.size();i++) {
                     Alkatresz a = egyedek.get(i);
                     if(a.getNev().equalsIgnoreCase(nev)) {
                         exist=true;
                         id=i;
                     }
+                }
                     if(exist) {
-                        return (List) this.egyedek.get(id);
+                        return egyedek.get(id);
                     } else {
-                        return (List) this.egyedek.get(id);
+                        System.out.println("Nincs megfelelo adat!");
+                        return null;
                     }
-                }    
-            break;
+            }
         }
         } catch (IOException ex) {
             Logger.getLogger(Raktar.class.getName()).log(Level.SEVERE, null, ex);

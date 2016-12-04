@@ -1,14 +1,14 @@
 package main;
 
-import main.kezelo.FelhasznaloKezelo;
-import main.kezelo.MunkalapKezelo;
+import main.kezelo.*;
 import main.modell.aktor.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import main.kezelo.FoglalasKezelo;
-import main.kezelo.Raktar;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class SzervizMain {
 
@@ -16,16 +16,18 @@ public class SzervizMain {
 
     private Felhasznalo bejelentkezett;     // bejelentkezett felhasználó
     
- 
-    
     // kezelok
     private static final MunkalapKezelo munkalapKezelo = new MunkalapKezelo();
     private static final FelhasznaloKezelo felhasznaloKezelo = new FelhasznaloKezelo();
     FoglalasKezelo foglalasKezelo = new FoglalasKezelo(bejelentkezett);
     private static final Raktar raktar = new Raktar();
+    private static final MegrendelesKezelo megrendelesKezelo = new MegrendelesKezelo(raktar);
     private void start() {
         udvozletKiir();
-        
+
+        felhasznaloKezelo.getFelhasznalok().add(new Recepcios("aaa", "a", "b", "a", 11));
+        felhasznaloKezelo.getFelhasznalok().add(new Szerelo("szemszamSA", "Szerelo Istvan", "szerelo", "pswd", 23));
+
         //tesztelésnek
        /* foglalasKezelo.hozzaad();
         foglalasKezelo.hozzaad();
@@ -94,13 +96,32 @@ public class SzervizMain {
         } else if( bejelentkezett instanceof Tulajdonos ) { // tulajdonos van bejelentkezve
 
         } else if( bejelentkezett instanceof Recepcios ) {  // recepcios van bejelentkezve
-
+            recepciosMenuVegrehajt(menu);
         } else if( bejelentkezett instanceof Raktaros ) {   // raktaros van bejelentkezve
 
         } else if( bejelentkezett instanceof Szerelo ) {    // szerelo van bejelentkezve
 
         } else {                                            // ennek sose szabadna lefutnia, ha igen akkor kivetel lesz
             throw new IllegalArgumentException("Valami hiba van a bejelentkezett felhasznalot illetoen!");
+        }
+    }
+
+    private void recepciosMenuVegrehajt(String menu) {
+        if("1".equals(menu)) {
+            munkalapKezelo.hozzaad();
+        } else if("2".equals(menu)) {
+            munkalapKezelo.listaz();
+
+            System.out.println("Melyik munkalapot szeretne megtekinteni? ");
+            try {
+                munkalapKezelo.kiir( bekerSzam() - 1 );
+            } catch (Exception ex) {
+                System.out.println(HIBAUZENET);
+            }
+        } else if("3".equals(menu)) {
+            megrendelesKezelo.hozzaad();
+        } else {
+            System.out.println("Nincs ilyen menupont!");
         }
     }
 
@@ -153,8 +174,6 @@ public class SzervizMain {
         return felhasznaloKezelo;
     }
 
-    
-    
     public static void main(String[] args) {
         new SzervizMain().start();
     }

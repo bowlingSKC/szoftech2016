@@ -17,7 +17,7 @@ public class SzervizMain {
     // kezelok
     private static final MunkalapKezelo munkalapKezelo = new MunkalapKezelo();
     private static final FelhasznaloKezelo felhasznaloKezelo = new FelhasznaloKezelo();
-    FoglalasKezelo foglalasKezelo = new FoglalasKezelo(bejelentkezett);
+    FoglalasKezelo foglalasKezelo = new FoglalasKezelo();
     private static final Raktar raktar = new Raktar();
     private static final MegrendelesKezelo megrendelesKezelo = new MegrendelesKezelo(raktar);
     private static final SzamlaKezelo szamlaKezelo = new SzamlaKezelo();
@@ -66,6 +66,7 @@ public class SzervizMain {
     }
 
     private void menuKiir() {
+        
         if( bejelentkezett == null ) {      // senki sincs bejelentkezve
             MenuKiiro.vendegMenuKiir();
         } else if( bejelentkezett instanceof Ugyfel) {     // ügyfél van bejelentkezve
@@ -164,7 +165,11 @@ public class SzervizMain {
         }else if( "4".equals(menu))
         {
             foglalasKezelo.FoglalasModositas();
+        }else if( "5".equals(menu))
+        {
+            foglalasKezelo.listaz();
         }
+        
         else if("X".equals(menu.toUpperCase())){
               // TODO fajlba mentes
             

@@ -51,7 +51,7 @@ public class MegrendelesKezelo extends Kezelo {
             Megrendeles uj = new Megrendeles(hossz,partaz,koltseg,tetelek);
             egyedek.add(uj);
         
-        } catch (IOException ex) {
+        } catch (IOException e) {
             System.out.println(SzervizMain.HIBAUZENET);
         }
        

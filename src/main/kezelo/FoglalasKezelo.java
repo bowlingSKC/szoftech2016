@@ -12,11 +12,11 @@ import main.modell.aktor.Felhasznalo;
 public class FoglalasKezelo extends Kezelo {
 
     private List<Foglalas> foglalasok;
-    Felhasznalo akinekkellazazonja;
+  //  Felhasznalo akinekkellazazonja;
 
-    public FoglalasKezelo(Felhasznalo bejelentkezett) {
+    public FoglalasKezelo(/*Felhasznalo bejelentkezett*/) {
         foglalasok = new ArrayList<>();
-        akinekkellazazonja = bejelentkezett;
+       // akinekkellazazonja = bejelentkezett;
     }
 
     public void add(Foglalas uj) {
@@ -30,11 +30,11 @@ public class FoglalasKezelo extends Kezelo {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy.M.dd HH:mm");
             System.out.println("Adja meg a foglalas idopontjat: (eeee.hh.nn hh:mm)");
             String mikorra = SzervizMain.bekerSzoveg();
-           /* System.out.println("Szemelyi azonosito:");
+           System.out.println("Szemelyi azonosito:");
             String azon = SzervizMain.bekerSzoveg(); //ebbe kell beletölteni a  bejelentkezett felhaszánló azonosítóját.
-          */
+          
             Foglalas uj;
-            uj = new Foglalas(sdf.parse(mikorra), akinekkellazazonja.getSzemszam()); //ide kell még a szemszám
+            uj = new Foglalas(sdf.parse(mikorra), azon); //ide kell még a szemszám
             foglalasok.add(uj);
 
         } catch (IOException ep) {
@@ -98,10 +98,10 @@ public class FoglalasKezelo extends Kezelo {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy.M.dd HH:mm");
             System.out.println("Adja meg a doglalas idopontjat: (eeee.hh.nn hh:mm)");
             String mikorra = SzervizMain.bekerSzoveg();
-         /*   System.out.println("Szemelyi azonosito:");
-            String szemszam = SzervizMain.bekerSzoveg();*/
+            System.out.println("Szemelyi azonosito:");
+            String szemszam = SzervizMain.bekerSzoveg();
             Foglalas uj;
-            uj = new Foglalas(sdf.parse(mikorra), akinekkellazazonja.getSzemszam()); //ide kell még a szemszám
+            uj = new Foglalas(sdf.parse(mikorra), szemszam); //ide kell még a szemszám
             foglalasok.add(uj);
 
         } catch (IOException ep) {

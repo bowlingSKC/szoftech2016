@@ -16,6 +16,7 @@ public class MenuKiiro {
         System.out.println("2. ...");
         System.out.println("3. Foglalas hozzaadasa");
         System.out.println("4. Foglalas Modositasa");
+        System.out.println("5. Foglalas Listazasa");
         System.out.println("9. Kijelentkezes");
     }
 

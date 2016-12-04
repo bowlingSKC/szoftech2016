@@ -60,14 +60,26 @@ public class Raktar extends Kezelo<Alkatresz> {
         }
     }
 
+    public void keresesalapjanlistaz() throws IOException{
+        Alkatresz a = new Alkatresz();
+        a = alkatreszkereses();
+        System.out.println("A termek cikkszama: " + a.getCikkszam());
+        System.out.println("A termek markaja: " + a.getMarka());
+        System.out.println("A termek neve: " + a.getNev());
+        System.out.println("A termek tipusa: " + a.getTipus());
+        System.out.println("A termek beszerzesi ara: " + a.getBeszerzesiar());
+        System.out.println("A termek eladasi ara: " + a.getEladasiAr());
+        System.out.println();
+    }
+    
     @Override
     public List kereses() {
         return null;
     }
     
-    public Alkatresz alkatreszkereses() {
+    public Alkatresz alkatreszkereses() throws IOException {
         boolean exist=false;
-        if(this.egyedek.isEmpty()) {
+        if(egyedek.isEmpty()) {
             System.out.println("Nincs elem a raktarban!");
             return null;
         }
@@ -80,19 +92,21 @@ public class Raktar extends Kezelo<Alkatresz> {
             {
                 System.out.println("Adja meg a cikkszamot: ");
                 int id = bekerSzam();
-                for(int i=0;i<this.egyedek.size();i++) {
-                    Alkatresz a = egyedek.get(i);
-                    if(a.getCikkszam()== id) {
-                        exist=true;   
+                int db = 0;
+                for(int i=0;i<egyedek.size();i++) {
+                    //Alkatresz a = egyedek.get(i);
+                    if(egyedek.get(i).getCikkszam()== id) {
+                        exist=true;
+                        if(exist) {
+                            return (Alkatresz) egyedek.get(i);
+                            
+                        }
                     }
                 }   
-                if(exist) {
-                    return egyedek.get(id);
-                } else {
+                
                     System.out.println("Nincs megfelelo adat!");
                     return null;
-                }    
-            }
+            }    
             case 2:
             {
                 System.out.println("Adja meg a nevet: ");
@@ -103,18 +117,18 @@ public class Raktar extends Kezelo<Alkatresz> {
                     if(a.getNev().equalsIgnoreCase(nev)) {
                         exist=true;
                         id=i;
+                        if(exist) {
+                        return (Alkatresz) egyedek.get(id);
+                        }
                     }
                 }
-                    if(exist) {
-                        return egyedek.get(id);
-                    } else {
-                        System.out.println("Nincs megfelelo adat!");
-                        return null;
-                    }
+                     
+                    System.out.println("Nincs megfelelo adat!");
+                    return null;
+                }
             }
-        }
-        } catch (IOException ex) {
-            Logger.getLogger(Raktar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException e) {
+            System.out.println(SzervizMain.HIBAUZENET);
         }
         
         return null;

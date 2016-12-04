@@ -47,7 +47,7 @@ public class Megrendeles {
         for(int i = 0; i < soktetel.size(); i++)
         {
             System.out.println("Db: " + soktetel.get(i).getDarabalkatresz());
-            System.out.println(soktetel.get(i).getAlkatresz().getNev());
+            System.out.println(soktetel.get(i).getMegnevezes());
             System.out.println(soktetel.get(i).getAlkatresz().getCikkszam());
             System.out.println(soktetel.get(i).getAlkatresz().getMarka());
             System.out.println(soktetel.get(i).getAlkatresz().getTipus());

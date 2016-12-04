@@ -79,6 +79,7 @@ public class MegrendelesKezelo extends Kezelo {
         for(int i = 0; i < egyedek.size(); i++)
         {
            Megrendeles a =  (Megrendeles) egyedek.get(i);
+           
             a.kiirMegrendeles();
         }
         

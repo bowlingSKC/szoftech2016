@@ -45,6 +45,7 @@ public class MenuKiiro {
         System.out.println("3. Alkatresz hozzaadasa");
         System.out.println("4. Alkatresz torlese");
         System.out.println("5. Megrenedeles keszitese");
+        System.out.println("5. Megrenedelesek listazasa");
         
 
     }

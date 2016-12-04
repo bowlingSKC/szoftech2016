@@ -84,7 +84,7 @@ public class SzervizMain {
         }
     }
 
-    private void menuVegrehajt(String menu) throws ParseException {
+    private void menuVegrehajt(String menu) throws ParseException, IOException {
         if( bejelentkezett == null ) {      // senki sincs bejelentkezve
             vendegMenuVegrehajt(menu);
         } else if( bejelentkezett instanceof Ugyfel) {     // ügyfél van bejelentkezve
@@ -179,7 +179,7 @@ public class SzervizMain {
         }
     }
     
-    private void raktarosMenuVegrehajt(String menu) {
+    private void raktarosMenuVegrehajt(String menu) throws IOException {
         if( "0".equals(menu) ) {
             Felhasznalo bejelentkezett = felhasznaloKezelo.bejelentkezes();
             if( bejelentkezett == null ) {
@@ -189,7 +189,7 @@ public class SzervizMain {
         } else if( "1".equals(menu) ) {
             raktar.listaz();
         } else if( "2".equals(menu) ) {
-            raktar.kereses();
+            raktar.keresesalapjanlistaz();
         } else if( "3".equals(menu) ) {
             raktar.hozzaad();
         } else if( "4".equals(menu) ) {
@@ -197,6 +197,8 @@ public class SzervizMain {
         } else if( "5".equals(menu))
         {
             megrendelesKezelo.hozzaad();
+        }else if( "6".equals(menu)){
+            megrendelesKezelo.listaz();
         }
         else if("X".equals(menu.toUpperCase())){
               // TODO fajlba mentes    

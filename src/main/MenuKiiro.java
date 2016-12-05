@@ -71,7 +71,6 @@ public class MenuKiiro {
     
     public static void keresesMenuKiir() {
         System.out.println();
-        System.out.println("X. Kilepes");
         System.out.println("0. Vissza");
         System.out.println("1. Cikkszam alapjan");
         System.out.println("2. Nev alapjan");

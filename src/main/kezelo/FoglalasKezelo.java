@@ -7,14 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 import main.SzervizMain;
 import main.modell.Foglalas;
-import main.modell.aktor.Felhasznalo;
 
 public class FoglalasKezelo extends Kezelo {
 
     private List<Foglalas> foglalasok;
   //  Felhasznalo akinekkellazazonja;
 
-    public FoglalasKezelo(/*Felhasznalo bejelentkezett*/) {
+    public FoglalasKezelo() {
         foglalasok = new ArrayList<>();
        // akinekkellazazonja = bejelentkezett;
     }

@@ -96,13 +96,14 @@ public class Raktar extends Kezelo<Alkatresz> {
             return null;
         }
         keresesMenuKiir();
+        System.out.print("A valasztott menu: ");
         int input;
         try {
             input = bekerSzam();
             switch (input) {
             case 1: 
             {
-                System.out.println("Adja meg a cikkszamot: ");
+                System.out.print("Adja meg a cikkszamot: ");
                 int id = bekerSzam();
                 int db = 0;
                 for(int i=0;i<egyedek.size();i++) {
@@ -121,7 +122,7 @@ public class Raktar extends Kezelo<Alkatresz> {
             }    
             case 2:
             {
-                System.out.println("Adja meg a nevet: ");
+                System.out.print("Adja meg a nevet: ");
                 String nev = bekerSzoveg();
                 int id=0;
                 for(int i=0;i<this.egyedek.size();i++) {

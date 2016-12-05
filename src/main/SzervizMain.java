@@ -38,6 +38,7 @@ public class SzervizMain {
 
                 System.out.print("A valasztott menu: ");
                 String menu = bekerSzoveg();
+                System.out.println();
                 if("X".equals(menu.toUpperCase()) || "0".equals(menu)) {
                     if( "0".equals(menu) ) {
                         bejelentkezett = null;
@@ -90,7 +91,7 @@ public class SzervizMain {
         } else if( bejelentkezett instanceof Ugyfel) {     // ügyfél van bejelentkezve
             ugyfelMenuVegrehajt(menu);
         } else if( bejelentkezett instanceof Tulajdonos ) { // tulajdonos van bejelentkezve
-
+            tulajdonosMenuVegrehajt(menu);
         } else if( bejelentkezett instanceof Recepcios ) {  // recepcios van bejelentkezve
             recepciosMenuVegrehajt(menu);
         } else if( bejelentkezett instanceof Raktaros ) {   // raktaros van bejelentkezve

@@ -43,20 +43,21 @@ public class MegrendelesKezelo extends Kezelo {
                 System.out.println("Tetel leirasa:");
                 egytetel.setLeiras(SzervizMain.bekerSzoveg());
                 tetelek.add(egytetel);
-                System.out.println("Partnerazonosito: ");
-                partaz = SzervizMain.bekerSzam();
-                for (int i = 0; i < tetelek.size(); i++) {
-                    koltseg = (egytetel.getDarabalkatresz()) * (egytetel.getAlkatresz().getBeszerzesiar());
-                }
-                Megrendeles uj = new Megrendeles(hossz, partaz, koltseg, tetelek);
-                egyedek.add(uj);
                 System.out.println("Szeretne-e meg tetelt hozzaadni? (i/n)");
                 String igen = SzervizMain.bekerSzoveg();
                 if (igen.equalsIgnoreCase("i")) {
                 } else {
                     akaremeg = false;
                 }
-            }
+                 }
+                System.out.println("Partnerazonosito: ");
+                partaz = SzervizMain.bekerSzam();
+                for (int i = 0; i < tetelek.size(); i++) {
+                    koltseg = (tetelek.get(i).getDarabalkatresz()) * (tetelek.get(i).getAlkatresz().getBeszerzesiar());
+                }
+                Megrendeles uj = new Megrendeles(hossz, partaz, koltseg, tetelek);
+                egyedek.add(uj);
+                
 
         } catch (IOException e) {
             System.out.println(SzervizMain.HIBAUZENET);
@@ -82,12 +83,12 @@ public class MegrendelesKezelo extends Kezelo {
     public void listaz() {
 
         System.out.println("Folyamatban levo megrendelesek:");
-        Megrendeles a = null;
-       
+        
         for (int i = 0; i < egyedek.size(); i++) {
-            a = (Megrendeles) egyedek.get(i);
+            Megrendeles a = (Megrendeles) egyedek.get(i);
+            a.kiirMegrendeles();
             }
-        a.kiirMegrendeles();
+        
 
     }
 

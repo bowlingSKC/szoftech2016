@@ -42,13 +42,25 @@ public class Raktar extends Kezelo<Alkatresz> {
     }
 
     @Override
-    public void torol() {}
+    public void torol() {
+    listaz();
+        System.out.println("Adja meg a torlendo alkatresz szamat:");
+        try {
+            int torol = SzervizMain.bekerSzam();
+            egyedek.remove(torol-1);
+            System.out.println("Torles megtortent");
+            System.out.println();
+        } catch (IOException ex) {
+            System.out.println(SzervizMain.HIBAUZENET);
+        }
+    }
 
     @Override
     public void listaz() {
         for(int i = 0; i < egyedek.size(); i++)
         {
            Alkatresz a =  egyedek.get(i);
+           System.out.println("Szama: " + (i+1));
             System.out.println("A termek cikkszama: " + a.getCikkszam());
             System.out.println("A termek markaja: " + a.getMarka());
             System.out.println("A termek neve: " + a.getNev());

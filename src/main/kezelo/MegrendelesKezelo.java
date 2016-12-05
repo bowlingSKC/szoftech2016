@@ -68,7 +68,7 @@ public class MegrendelesKezelo extends Kezelo {
     @Override
     public void torol() {
         listaz();
-        System.out.println("Adja meg a torendo megrendeles szamat:");
+        System.out.println("Adja meg a torlendo megrendeles szamat:");
         try {
             int torol = SzervizMain.bekerSzam();
             egyedek.remove(torol-1);

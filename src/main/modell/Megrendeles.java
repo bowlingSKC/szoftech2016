@@ -48,12 +48,12 @@ public class Megrendeles {
          for(int i = 0; i < soktetel.size(); i++)
         {
             System.out.println("Db: " + soktetel.get(i).getDarabalkatresz());
-            System.out.println(soktetel.get(i).getMegnevezes());
-            System.out.println(soktetel.get(i).getAlkatresz().getCikkszam());
-            System.out.println(soktetel.get(i).getAlkatresz().getMarka());
-            System.out.println(soktetel.get(i).getAlkatresz().getTipus());
-            System.out.println(soktetel.get(i).getAlkatresz().getBeszerzesiar());
-            System.out.println(soktetel.get(i).getAlkatresz().getEladasiAr());
+            System.out.println("Megnevezes: " + soktetel.get(i).getMegnevezes());
+            System.out.println("Cikkszam: " + soktetel.get(i).getAlkatresz().getCikkszam());
+            System.out.println("Marka: " + soktetel.get(i).getAlkatresz().getMarka());
+            System.out.println("Tipus: " + soktetel.get(i).getAlkatresz().getTipus());
+            System.out.println("Beszerzesiar: " + soktetel.get(i).getAlkatresz().getBeszerzesiar());
+            System.out.println("Eladasiar: " + soktetel.get(i).getAlkatresz().getEladasiAr());
         }
     }
 

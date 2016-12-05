@@ -53,7 +53,7 @@ public class MegrendelesKezelo extends Kezelo {
                 System.out.println("Partnerazonosito: ");
                 partaz = SzervizMain.bekerSzam();
                 for (int i = 0; i < tetelek.size(); i++) {
-                    koltseg = (tetelek.get(i).getDarabalkatresz()) * (tetelek.get(i).getAlkatresz().getBeszerzesiar());
+                    koltseg = koltseg + ((tetelek.get(i).getDarabalkatresz()) * (tetelek.get(i).getAlkatresz().getBeszerzesiar()));
                 }
                 Megrendeles uj = new Megrendeles(hossz, partaz, koltseg, tetelek);
                 egyedek.add(uj);

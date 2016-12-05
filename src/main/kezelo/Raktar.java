@@ -101,6 +101,8 @@ public class Raktar extends Kezelo<Alkatresz> {
         try {
             input = bekerSzam();
             switch (input) {
+            case 0:
+                break;
             case 1: 
             {
                 System.out.print("Adja meg a cikkszamot: ");

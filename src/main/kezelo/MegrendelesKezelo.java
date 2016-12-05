@@ -71,7 +71,7 @@ public class MegrendelesKezelo extends Kezelo {
         System.out.println("Adja meg a torendo megrendeles szamat:");
         try {
             int torol = SzervizMain.bekerSzam();
-            egyedek.remove(torol);
+            egyedek.remove(torol-1);
             System.out.println("Torles megtortent");
             System.out.println();
         } catch (IOException ex) {

@@ -199,6 +199,8 @@ public class SzervizMain {
             megrendelesKezelo.hozzaad();
         }else if( "6".equals(menu)){
             megrendelesKezelo.listaz();
+        }else if( "7".equals(menu)){
+            megrendelesKezelo.torol();
         }
         else if("X".equals(menu.toUpperCase())){
               // TODO fajlba mentes    

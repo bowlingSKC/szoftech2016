@@ -41,11 +41,12 @@ public class Megrendeles {
 
     public void kiirMegrendeles()
     {
-        System.out.println("Azonosito: " + azonosito);
-        System.out.println("Koltseg: " + koltseg);
-        System.out.println("Megrendelt alkatreszek:");
         for(int i = 0; i < soktetel.size(); i++)
         {
+            System.out.println("Azonosito: " + azonosito);
+            System.out.println("Koltseg: " + koltseg);
+            System.out.println("Megrendelt alkatreszek:");
+        
             System.out.println("Db: " + soktetel.get(i).getDarabalkatresz());
             System.out.println(soktetel.get(i).getMegnevezes());
             System.out.println(soktetel.get(i).getAlkatresz().getCikkszam());
